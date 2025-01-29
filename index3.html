@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to BLDEACET</title>
+    <link rel="icon" type="image/png" href="img/IIITV_Logo_1x1_small.png">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #a8e6cf; /* Light green background */
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 100px; /* Adjust logo height as needed */
+        }
+        .department-info {
+            margin: 10px 0;
+        }
+        .department-info h5 {
+            margin: 5px 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem; /* Adjusted header size */
+        }
+        .btn {
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+        .btn:hover {
+            background-color: #0056b3; /* Darker on hover */
+            transform: scale(1.05); /* Slight scale effect */
+        }
+        table {
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #a8e6cf; /* Light green footer */
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with logo and department info -->
+    <header class="header">
+        <img src="data:image/jpeg;base64,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" alt="logo">
+        <div class="department-info">
+            <h5>DEPARTMENT OF INFORMATION SCIENCE AND ENGINEERING</h5>
+            <h5>BLDEACET</h5>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Student Details Entry</h2>
+
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="studentId">Student USN:</label>
+                <input type="text" class="form-control" id="studentId" required>
+            </div>
+            <div class="form-group">
+                <label for="studentName">Student Name:</label>
+                <input type="text" class="form-control" id="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="semester">Select Semester:</label>
+                <select class="form-control" id="semester" required>
+                    <option value="">--Select Semester--</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="addStudent()">Add Student</button>
+        </form>
+
+        <hr>
+
+        <h2>Show Students</h2>
+        <div class="form-group">
+            <label for="showSemester">Select Semester:</label>
+            <select class="form-control" id="showSemester" required>
+                <option value="">--Select Semester--</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+            <button type="button" class="btn btn-success" onclick="showStudents()">Show Students</button>
+        </div>
+
+        <table class="table table-striped" id="studentTable">
+            <thead>
+                <tr>
+                    <th>USN</th>
+                    <th>Name</th>
+                    <th>Semester</th>
+                </tr>
+            </thead>
+            <tbody id="studentList"></tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 BLDEACET. All rights reserved.</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function addStudent() {
+            const studentId = $('#studentId').val();
+            const studentName = $('#studentName').val();
+            const semester = $('#semester').val();
+
+            if (studentId && studentName && semester) {
+                $.ajax({
+                    url: 'http://localhost:3000/add-student',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ studentId, studentName, semester }),
+                    success: function(response) {
+                        alert(response);
+                        $('#studentForm')[0].reset();
+                    },
+                    error: function(error) {
+                        alert('Error: ' + error.responseText);
+                    }
+                });
+            }
+        }
+
+        function showStudents() {
+            const semester = $('#showSemester').val();
+
+            if (semester) {
+                $.ajax({
+                    url: `http://localhost:3000/students/${semester}`,
+                    type: 'GET',
+                    success: function(students) {
+                        $('#studentList').empty();
+                        if (students.length > 0) {
+                            students.forEach(student => {
+                                $('#studentList').append(`
+                                    <tr>
+                                        <td>${student.studentId}</td>
+                                        <td>${student.studentName}</td>
+                                        <td>${student.semester}</td>
+                                    </tr>
+                                `);
+                            });
+                        } else {
+                            $('#studentList').append('<tr><td colspan="3">No students found for this semester.</td></tr>');
+                        }
+                    },
+                    error: function(error) {
+                        alert('Error: ' + error.responseText);
+                    }
+                });
+            } else {
+                alert('Please select a semester.');
+            }
+        }
+    </script>
+</body>
+</html>

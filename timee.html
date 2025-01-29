@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to bldeacet</title>
+    <link rel="icon" type="image/png" href="img/IIITV_Logo_1x1_small.png">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="timee.css">
+    
+</head>
+
+<body id="home">
+<!-- Start Your Body Code From here -->
+<div class="wrapper">
+    <!-- header starts here -->
+    <header id="header" class="">
+        <!-- header -->
+        <div class="header-wrapper">
+            <div class="header-container">
+                <div>
+                    <div class="logo-name">
+                        <div class="logo"><a href="" title=""><img src="img\BLD.png"
+                                                                             alt="logo"></a></div>
+                        <div class="name">
+                            <a href="index.html" title="">
+                                <h5>DEPARTMENT OF INFORMATION SCINCE AND ENGINEERING</h5>
+                                <h5 class="primary-color">BLDEACET</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-links">
+                    <a href="https://www.google.com/maps?ll=16.847732,75.718501&z=17&t=m&hl=en&gl=IN&mapclient=embed&cid=6385882878560726955" target="_blank" title="Open in Google Maps">
+                        <i class="fa fa-map-marker fa-lg" style="color: #FF5733;" aria-hidden="true"></i>
+                    </a>
+                
+                    <a href="#" data-toggle="popover" title="Phone No." data-content="+91-79-29750281"
+                       data-placement="bottom"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
+                       <a href="https://www.youtube.com/@bldeacetmedia7621" target="_blank" title="YouTube">
+                        <i class="fa fa-youtube fa-lg" style="color: #FF0000;" aria-hidden="true"></i>
+                    </a>
+                
+                    <!-- Social Media Links with Colored Logos -->
+                    <a href="https://www.instagram.com/bldeacetmedia/" target="_blank" title="Instagram">
+                        <i class="fa fa-instagram fa-lg" style="color: #C13584;" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://x.com/i/flow/login?redirect_after_login=%2Fbldeacet" target="_blank" title="Twitter">
+                        <i class="fa fa-twitter fa-lg" style="color: #1DA1F2;" aria-hidden="true"></i>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <nav>
+            <nav>
+                <div class="navbar navbar-inverse navbar-custom" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="next.html">Student Details Entry</a></li>
+
+                                <li>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        faculty<b class="caret"></b></a>
+                                    <ul class="dropdown-menu multi-level">
+                                        <li><a href="faculty.html">staff details</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                                    <ul class="dropdown-menu multi-level">
+                                        <li><a href="faq.html">Acadamic calender</a></li>
+                                        <li><a href="student_corner.html">Student's Corner</a></li>
+                                        <li><a href="http://moodle.iiitv.ac.in" target="_blank">Moodle</a></li>
+                                        <li><a href="library.html">Library</a></li>
+                                        <li><a href="invited_talks.html">Invited Talks</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="timee.html">AUTOMATIVE_TIMETABLE</a></li>
+                                <li><a href="gallery.html">Photo Gallery</a></li>
+                                <li><a href="attend3.html">Attendance</a></li> <!-- New Attendance Link -->
+                                <li><a href="ser.html">E Notes</a></li> <!-- New Marks Entry Link -->
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </nav>
+            
+    </header>
+<body>
+    <h1>Timetable Generator</h1>
+
+    <div class="semester-inputs">
+        <div class="semester">
+            <h2>Semester 5</h2>
+            <label for="num-subjects-sem-1">Number of Subjects:</label>
+            <input type="number" id="num-subjects-sem-1" min="1" value="5">
+            <button onclick="addSubjects(1)">Add Subjects</button>
+            <div id="subject-inputs-sem-1"></div>
+
+            <label for="num-labs-sem-1">Number of Labs:</label>
+            <input type="number" id="num-labs-sem-1" min="0" value="2">
+            <button onclick="addLabs(1)">Add Labs</button>
+            <div id="lab-inputs-sem-1"></div>
+        </div>
+
+        <div class="semester">
+            <h2>Semester 7</h2>
+            <label for="num-subjects-sem-2">Number of Subjects:</label>
+            <input type="number" id="num-subjects-sem-2" min="1" value="5">
+            <button onclick="addSubjects(2)">Add Subjects</button>
+            <div id="subject-inputs-sem-2"></div>
+
+            <label for="num-labs-sem-2">Number of Labs:</label>
+            <input type="number" id="num-labs-sem-2" min="0" value="2">
+            <button onclick="addLabs(2)">Add Labs</button>
+            <div id="lab-inputs-sem-2"></div>
+        </div>
+
+        <div class="semester">
+            <h2>Semester 3</h2>
+            <label for="num-subjects-sem-3">Number of Subjects:</label>
+            <input type="number" id="num-subjects-sem-3" min="1" value="5">
+            <button onclick="addSubjects(3)">Add Subjects</button>
+            <div id="subject-inputs-sem-3"></div>
+
+            <label for="num-labs-sem-3">Number of Labs:</label>
+            <input type="number" id="num-labs-sem-3" min="0" value="2">
+            <button onclick="addLabs(3)">Add Labs</button>
+            <div id="lab-inputs-sem-3"></div>
+        </div>
+    </div>
+
+    <button onclick="generateTimetables()">Generate Timetables</button>
+
+    <div id="timetables-container">
+        <div id="timetable-sem-1"></div>
+        <div id="timetable-sem-2"></div>
+        <div id="timetable-sem-3"></div>
+    </div>
+
+    <div class="action-buttons">
+        <button onclick="printTimetables()">Print Timetables</button>
+        <button onclick="saveTimetables()">Save Timetables as Text</button>
+        <button onclick="enableEditing()">Edit Timetables</button>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="timee.js"></script>
+</body>
+   <!-- Footer -->
+   <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>&copy; BLDEACET DEPT OF ISE.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>
+

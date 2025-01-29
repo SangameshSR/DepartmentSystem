@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IIIT-V | Faculty</title>
+    <!--Style Starts-->
+    <link rel="icon" type="image/png" href="img/IIITV_Logo_1x1_small.png">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+     <!-- Link to the external CSS file -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom Styling */
+
+
+
+.toggle-buttons button {
+    margin: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    background-color: #f8f9fa;
+}
+
+.table,
+.chart-container {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #0062cc;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.alert-info {
+    font-size: 1.1rem;
+    background-color: #e9f7fe;
+    border-color: #b6e1f0;
+}
+
+/* Enhanced Total Students Section */
+#totalStudents {
+    background: linear-gradient(135deg, #00ccbb, #4edfbb);
+    color: white;
+    font-size: 1.75rem;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#totalStudents:hover {
+    transform: scale(1.05);
+}
+
+#totalStudents .total-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.chart-container {
+    max-width: 100%;
+    overflow: hidden;
+    display: none;
+}
+
+.attendance-table {
+    display: none;
+}
+
+/* Styling for table rows */
+.table th,
+.table td {
+    text-align: center;
+}
+
+.table th {
+    background-color: #f1f1f1;
+}
+
+/* For small devices */
+@media (max-width: 576px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .total-students {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .chart-container {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .attendance-table {
+        display: table;
+        margin-top: 20px;
+    }
+}
+
+/* Add some subtle animation for smooth transitions */
+.card-body {
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card-body:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add some spacing for small screens */
+.btn {
+    margin-bottom: 10px;
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <!-- Start Your Body Code From here -->
+    <div class="wrapper">
+        <!-- header starts here -->
+        <header id="header" class="">
+            <!-- header -->
+            <div class="header-wrapper">
+                <div class="header-container">
+                    <div>
+                        <div class="logo-name">
+                            <div class="logo"><a href="index.html" title=""><img src="img\BLD.png"
+                                                                                 alt="logo"></a></div>
+                            <div class="name">
+                                <a href="index.html" title="">
+                                    <h5>DEPARTMENT OF INFORMATION SCINCE AND ENGINEERING</h5>
+                                    <h5 class="primary-color">BLDEACET</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-links">
+                        <a href="https://www.google.com/maps?ll=16.847732,75.718501&z=17&t=m&hl=en&gl=IN&mapclient=embed&cid=6385882878560726955" target="_blank" title="Open in Google Maps">
+                            <i class="fa fa-map-marker fa-lg" style="color: #FF5733;" aria-hidden="true"></i>
+                        </a>
+                    
+                        <a href="#" data-toggle="popover" title="Phone No." data-content="+91-79-29750281"
+                           data-placement="bottom"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
+                           <a href="https://www.youtube.com/@bldeacetmedia7621" target="_blank" title="YouTube">
+                            <i class="fa fa-youtube fa-lg" style="color: #FF0000;" aria-hidden="true"></i>
+                        </a>
+                    
+                        <!-- Social Media Links with Colored Logos -->
+                        <a href="https://www.instagram.com/bldeacetmedia/" target="_blank" title="Instagram">
+                            <i class="fa fa-instagram fa-lg" style="color: #C13584;" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fbldeacet" target="_blank" title="Twitter">
+                            <i class="fa fa-twitter fa-lg" style="color: #1DA1F2;" aria-hidden="true"></i>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <nav>
+                <nav>
+                    <div class="navbar navbar-inverse navbar-custom" role="navigation">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="student_details.html">Student Details Entry</a></li>
+    
+                                    <li>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">People <b class="caret"></b></a>
+                                        <ul class="dropdown-menu multi-level">
+                                            <li><a href="faculty.html">Faculty</a></li>
+                                            <li><a href="visiting_faculty.html">Visiting Faculty</a></li>
+                                            <li><a href="staff.html">Staff</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                                        <ul class="dropdown-menu multi-level">
+                                            <li><a href="faq.html">FAQs</a></li>
+                                            <li><a href="student_corner.html">Student's Corner</a></li>
+                                            <li><a href="http://moodle.iiitv.ac.in" target="_blank">Moodle</a></li>
+                                            <li><a href="library.html">Library</a></li>
+                                            <li><a href="invited_talks.html">Invited Talks</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="career.html">Career</a></li>
+                                    <li><a href="gallery.html">Photo Gallery</a></li>
+                                    <li><a href="attendence.html">Attendance</a></li> <!-- New Attendance Link -->
+                                    <li><a href="marks_entry.html">Marks Entry</a></li> <!-- New Marks Entry Link -->
+                                </ul>
+                            </div>
+                            <!--/.nav-collapse -->
+                        </div>
+                    </div>
+                </nav>
+                
+        </header>
+        <style>
+            body {
+                background-color: #f8f9fa;
+            }
+            .header {
+                background-color: #a8e6cf; /* Light green background */
+                padding: 10px 0;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .header img {
+                height: 100px; /* Adjust logo height as needed */
+            }
+            .department-info {
+                margin: 10px 0;
+            }
+            .department-info h5 {
+                margin: 5px 0;
+            }
+            .container {
+                margin-top: 20px;
+            }
+            h2 {
+                margin-bottom: 20px;
+                font-size: 1.5rem; /* Adjusted header size */
+            }
+            .btn {
+                margin-top: 10px;
+                transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            }
+            .btn:hover {
+                background-color: #00b3ad; /* Darker on hover */
+                transform: scale(1.05); /* Slight scale effect */
+            }
+            table {
+                margin-top: 20px;
+            }
+            footer {
+                background-color: #a8e6cf; /* Light green footer */
+                text-align: center;
+                padding: 10px 0;
+                margin-top: 200px;
+            }
+        </style>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Student Dashboard</h1>
+
+        <!-- Total Students -->
+        <div id="totalStudents" class="alert alert-info text-center">
+            <div class="total-icon"><i class="fas fa-users"></i></div> <!-- Icon for total students -->
+            <div id="totalStudentsText">Loading...</div>
+        </div>
+
+        <!-- Roll Number Input -->
+        <div class="mb-4">
+            <label for="rollNumber" class="form-label">Enter Roll Number:</label>
+            <input type="text" id="rollNumber" class="form-control" placeholder="Roll Number" aria-describedby="rollNumberHelp">
+            <small id="rollNumberHelp" class="form-text text-muted">Enter your roll number to fetch the details.</small>
+            <button class="btn btn-primary mt-3" onclick="fetchDashboard()">Get Details</button>
+        </div>
+
+        <!-- Student Details -->
+        <div id="studentDetails" class="card mb-4" style="display: none;">
+            <div class="card-body">
+                <h5 class="card-title">Student Details</h5>
+                <p id="studentInfo"></p>
+                <p id="attendanceSummary"></p>
+            </div>
+        </div>
+
+        <!-- Toggle Buttons -->
+        <div class="toggle-buttons text-center mb-4">
+            <button class="btn btn-outline-primary" onclick="showTable()">View Table</button>
+            <button class="btn btn-outline-success" onclick="showGraph()">View Graph</button>
+        </div>
+
+        <!-- Attendance Table -->
+        <table class="table table-bordered attendance-table mt-4">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceTableBody"></tbody>
+        </table>
+
+        <!-- Attendance Chart -->
+        <div class="chart-container">
+            <canvas id="attendanceChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Fetch Total Students
+        async function fetchTotalStudents() {
+            try {
+                const response = await fetch('http://localhost:3006/total-students');
+                const data = await response.json();
+                document.getElementById('totalStudentsText').innerHTML = `
+                    Total Students: <strong>${data.totalStudents}</strong>
+                `;
+            } catch (error) {
+                console.error('Error fetching total students:', error);
+            }
+        }
+
+        // Fetch Dashboard Data
+        async function fetchDashboard() {
+            const rollNumber = document.getElementById('rollNumber').value;
+            if (!rollNumber) {
+                alert('Please enter a roll number.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:3006/dashboard/${rollNumber}`);
+                const data = await response.json();
+
+                if (data.studentDetails) {
+                    const { studentName, rollNumber, semester, email } = data.studentDetails;
+                    document.getElementById('studentDetails').style.display = 'block';
+                    document.getElementById('studentInfo').innerHTML = `
+                        <strong>Name:</strong> ${studentName || 'N/A'}<br>
+                        <strong>Roll Number:</strong> ${rollNumber}<br>
+                        <strong>Semester:</strong> ${semester}<br>
+                        <strong>Email:</strong> ${email || 'N/A'}
+                    `;
+                    document.getElementById('attendanceSummary').innerHTML = `
+                        <strong>Total Attendance Percentage:</strong> ${data.totalPercentage}%<br>
+                        <strong>Total Classes:</strong> ${data.totalClasses}
+                    `;
+
+                    // Render Table and Graph
+                    renderTable(data.attendance);
+                    renderGraph(data.attendance);
+                }
+            } catch (error) {
+                console.error('Error fetching dashboard:', error);
+                alert('Failed to fetch dashboard data. Please try again.');
+            }
+        }
+
+        // Render Attendance Table
+        function renderTable(attendance) {
+            const tbody = document.getElementById('attendanceTableBody');
+            tbody.innerHTML = attendance.map(a => `
+                <tr>
+                    <td>${a.subjectName}</td>
+                    <td>${a.totalPresent}</td>
+                    <td>${a.totalAbsent}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Render Attendance Graph
+        function renderGraph(attendance) {
+            const labels = attendance.map(a => a.subjectName);
+            const presentData = attendance.map(a => a.totalPresent);
+            const absentData = attendance.map(a => a.totalAbsent);
+
+            const ctx = document.getElementById('attendanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [
+                        { label: 'Present', data: presentData, backgroundColor: 'rgba(75, 192, 192, 0.6)' },
+                        { label: 'Absent', data: absentData, backgroundColor: 'rgba(255, 99, 132, 0.6)' }
+                    ]
+                },
+                options: { responsive: true, plugins: { legend: { position: 'top' } } }
+            });
+        }
+
+        // Toggle Table View
+        function showTable() {
+            document.querySelector('.attendance-table').style.display = 'table';
+            document.querySelector('.chart-container').style.display = 'none';
+        }
+
+        // Toggle Graph View
+        function showGraph() {
+            document.querySelector('.attendance-table').style.display = 'none';
+            document.querySelector('.chart-container').style.display = 'block';
+        }
+
+        // Fetch Total Students on Load
+        fetchTotalStudents();
+    </script>
+</body>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>&copy; BLDEACET DEPT OF ISE.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

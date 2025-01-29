@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Timetable Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Automated Timetable Generator</h1>
+
+    <div class="semester-inputs">
+        <div class="semester">
+            <h2>Semester 1</h2>
+            <label for="num-subjects-sem-1">Number of Subjects:</label>
+            <input type="number" id="num-subjects-sem-1" min="1" value="5">
+            <button onclick="addSubjects(1)">Add Subjects</button>
+            <div id="subject-inputs-sem-1"></div>
+
+            <label for="num-labs-sem-1">Number of Labs:</label>
+            <input type="number" id="num-labs-sem-1" min="0" value="2">
+            <button onclick="addLabs(1)">Add Labs</button>
+            <div id="lab-inputs-sem-1"></div>
+        </div>
+
+        <div class="semester">
+            <h2>Semester 2</h2>
+            <label for="num-subjects-sem-2">Number of Subjects:</label>
+            <input type="number" id="num-subjects-sem-2" min="1" value="5">
+            <button onclick="addSubjects(2)">Add Subjects</button>
+            <div id="subject-inputs-sem-2"></div>
+
+            <label for="num-labs-sem-2">Number of Labs:</label>
+            <input type="number" id="num-labs-sem-2" min="0" value="2">
+            <button onclick="addLabs(2)">Add Labs</button>
+            <div id="lab-inputs-sem-2"></div>
+        </div>
+    </div>
+
+    <button onclick="generateTimetables()">Generate Timetables</button>
+
+    <div class="timetables">
+        <div id="timetable-sem-1"></div>
+        <div id="timetable-sem-2"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

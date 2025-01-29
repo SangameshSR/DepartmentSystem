@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.semester-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.semester {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+input, button, select {
+    margin: 5px 0;
+    padding: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 4px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.timetables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.timetables > div {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.break {
+    background-color: #ffe6e6;
+}
+
+.lab {
+    background-color: #e6f3ff;
+}
+
+.editable {
+    background-color: #ffffd0;
+    cursor: pointer;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.action-buttons button {
+    margin: 0 10px;
+}
+
+@media (max-width: 1200px) {
+    .semester {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .semester {
+        width: 100%;
+    }
+}
+

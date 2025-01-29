@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to BLDEACET</title>
+    <link rel="icon" type="image/png" href="img/IIITV_Logo_1x1_small.png">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #0bbd7c; /* Light green background */
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 100px; /* Adjust logo height as needed */
+        }
+        .department-info {
+            margin: 10px 0;
+        }
+        .department-info h5 {
+            margin: 5px 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem; /* Adjusted header size */
+        }
+        .btn {
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+        .btn:hover {
+            background-color: #0056b3; /* Darker on hover */
+            transform: scale(1.05); /* Slight scale effect */
+        }
+        table {
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #a8e6cf; /* Light green footer */
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with logo and department info -->
+    <header id="header" class="">
+        <div class="header-wrapper">
+            <div class="header-container">
+                <div class="logo-name">
+                    <div class="logo">
+                        <a href="index.html" title="">
+                            <img src="img/BLD.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="department-info">
+                        <h5>DEPARTMENT OF INFORMATION SCIENCE AND ENGINEERING</h5>
+                        <h5 class="primary-color">BLDEACET</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Student Details Entry</h2>
+
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="studentId">Student USN:</label>
+                <input type="text" class="form-control" id="studentId" required>
+            </div>
+            <div class="form-group">
+                <label for="studentName">Student Name:</label>
+                <input type="text" class="form-control" id="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="semester">Select Semester:</label>
+                <select class="form-control" id="semester" required>
+                    <option value="">--Select Semester--</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="addStudent()">Add Student</button>
+        </form>
+
+        <hr>
+
+        <h2>Show Students</h2>
+        <div class="form-group">
+            <label for="showSemester">Select Semester:</label>
+            <select class="form-control" id="showSemester" required>
+                <option value="">--Select Semester--</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+            <button type="button" class="btn btn-success" onclick="showStudents()">Show Students</button>
+        </div>
+
+        <table class="table table-striped" id="studentTable">
+            <thead>
+                <tr>
+                    <th>USN</th>
+                    <th>Name</th>
+                    <th>Semester</th>
+                </tr>
+            </thead>
+            <tbody id="studentList"></tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>&copy; 2024 Indian Institute of Information Technology Vadodara. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function addStudent() {
+            const studentId = $('#studentId').val();
+            const studentName = $('#studentName').val();
+            const semester = $('#semester').val();
+
+            if (studentId && studentName && semester) {
+                $.ajax({
+                    url: 'http://localhost:3000/add-student',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ studentId, studentName, semester }),
+                    success: function(response) {
+                        alert(response);
+                        $('#studentForm')[0].reset();
+                    },
+                    error: function(error) {
+                        alert('Error: ' + error.responseText);
+                    }
+                });
+            }
+        }
+
+        function showStudents() {
+            const semester = $('#showSemester').val();
+
+            if (semester) {
+                $.ajax({
+                    url: `http://localhost:3000/students/${semester}`,
+                    type: 'GET',
+                    success: function(students) {
+                        $('#studentList').empty();
+                        if (students.length > 0) {
+                            students.forEach(student => {
+                                $('#studentList').append(`
+                                    <tr>
+                                        <td>${student.studentId}</td>
+                                        <td>${student.studentName}</td>
+                                        <td>${student.semester}</td>
+                                    </tr>
+                                `);
+                            });
+                        } else {
+                            $('#studentList').append('<tr><td colspan="3">No students found for this semester.</td></tr>');
+                        }
+                    },
+                    error: function(error) {
+                        alert('Error: ' + error.responseText);
+                    }
+                });
+            } else {
+                alert('Please select a semester.');
+            }
+        }
+    </script>
+</body>
+</html>

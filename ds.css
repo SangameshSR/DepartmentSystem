@@ -1,0 +1,138 @@
+/* Custom Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-buttons button {
+    margin: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    background-color: #f8f9fa;
+}
+
+.table,
+.chart-container {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #0062cc;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.alert-info {
+    font-size: 1.1rem;
+    background-color: #e9f7fe;
+    border-color: #b6e1f0;
+}
+
+/* Enhanced Total Students Section */
+#totalStudents {
+    background: linear-gradient(135deg, #0062cc, #4e73df);
+    color: white;
+    font-size: 1.75rem;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#totalStudents:hover {
+    transform: scale(1.05);
+}
+
+#totalStudents .total-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.chart-container {
+    max-width: 100%;
+    overflow: hidden;
+    display: none;
+}
+
+.attendance-table {
+    display: none;
+}
+
+/* Styling for table rows */
+.table th,
+.table td {
+    text-align: center;
+}
+
+.table th {
+    background-color: #f1f1f1;
+}
+
+/* For small devices */
+@media (max-width: 576px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .total-students {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .chart-container {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .attendance-table {
+        display: table;
+        margin-top: 20px;
+    }
+}
+
+/* Add some subtle animation for smooth transitions */
+.card-body {
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card-body:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add some spacing for small screens */
+.btn {
+    margin-bottom: 10px;
+}

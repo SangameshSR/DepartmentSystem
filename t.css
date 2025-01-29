@@ -1,0 +1,128 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styling */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Styling */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td.empty {
+    background-color: #e9e9e9;
+}
+
+/* Break Cell Styling */
+.break {
+    background-color: #FFC107;
+    font-weight: bold;
+}
+
+/* Editable Cells */
+.editable {
+    background-color: #f0f0f0;
+    outline: 2px solid #007BFF;
+}
+
+/* Inputs Section */
+#subject-inputs, #lab-inputs {
+    margin-bottom: 20px;
+}
+
+#subject-inputs label, #lab-inputs label {
+    margin-bottom: 5px;
+}
+
+#subject-inputs input, #lab-inputs input, #subject-inputs select, #lab-inputs select {
+    width: 48%;
+    margin-right: 4%;
+}
+
+/* Add buttons layout */
+button[type="button"] {
+    background-color: #007BFF;
+    margin-bottom: 10px;
+    width: 48%;
+    margin-right: 4%;
+}
+
+button[type="button"]:hover {
+    background-color: #0056b3;
+}

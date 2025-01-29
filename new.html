@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable Generator</title>
+    <style>
+        /* Basic styling for body and headings */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 8px; /* Rounded corners for the container */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border 0.3s; /* Smooth transition for border color */
+        }
+        input[type="text"]:focus, select:focus, input[type="number"]:focus {
+            border-color: #28a745; /* Change border color on focus */
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        button:active {
+            transform: scale(0.95);
+            background-color: #1e7e34; /* Darker shade for click effect */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .break {
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        .break-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            color: #555;
+        }
+        td.editable {
+            background-color: #ffecb3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Automatic Timetable Generator</h1>
+
+        <form id="timetable-form">
+            <h2>Subjects and Labs</h2>
+
+            <label for="num-subjects">Number of Subjects:</label>
+            <input type="number" id="num-subjects" placeholder="Enter number of subjects" required>
+
+            <button type="button" id="add-subjects">Add Subjects</button>
+            <div id="subject-inputs"></div>
+
+            <label for="num-labs">Number of Labs:</label>
+            <input type="number" id="num-labs" placeholder="Enter number of labs" required>
+
+            <button type="button" id="add-labs">Add Labs</button>
+            <div id="lab-inputs"></div>
+
+            <button type="submit">Generate Timetable</button>
+        </form>
+
+        <h2 id="week-name"></h2>
+        <button id="edit-btn">Toggle Editable</button>
+        <button id="clear-btn">Clear Timetable</button> <!-- New button to clear the timetable -->
+
+        <table id="timetable">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>9:00 - 10:00</th>
+                    <th>10:00 - 11:00</th>
+                    <th>11:00 - 11:15 (Break)</th>
+                    <th>11:15 - 12:15</th>
+                    <th>12:15 - 1:15</th>
+                    <th>2:15 - 4:15 (Lab)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Timetable rows for each day -->
+                <tr>
+                    <td>Monday</td>
+                    <td></td><td></td><td class="break"><div class="break-label">Break</div></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td></td><td></td><td class="break"><div class="break-label">Break</div></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td></td><td></td><td class="break"><div class="break-label">Break</div></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td></td><td></td><td class="break"><div class="break-label">Break</div></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td></td><td></td><td class="break"><div class="break-label">Break</div></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td></td><td></td><td class="break"><div class="break-label">Break</div></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const subjectInputs = document.getElementById('subject-inputs');
+        const labInputs = document.getElementById('lab-inputs');
+
+        // Function to add subject input fields dynamically
+        document.getElementById('add-subjects').addEventListener('click', function() {
+            const numSubjects = parseInt(document.getElementById('num-subjects').value);
+            subjectInputs.innerHTML = ''; // Clear existing inputs
+            for (let i = 1; i <= numSubjects; i++) {
+                subjectInputs.innerHTML += `
+                    <label for="subject-${i}">Subject ${i}:</label>
+                    <input type="text" id="subject-${i}" placeholder="Enter Subject ${i}" required>
+                    <label for="teacher-${i}">Teacher for Subject ${i}:</label>
+                    <input type="text" id="teacher-${i}" placeholder="Enter Teacher for Subject ${i}" required>
+                    <label for="classes-per-week-${i}">Classes per Week (Subject ${i}):</label>
+                    <select id="classes-per-week-${i}">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                `;
+            }
+        });
+
+        // Function to add lab input fields dynamically
+        document.getElementById('add-labs').addEventListener('click', function() {
+            const numLabs = parseInt(document.getElementById('num-labs').value);
+            labInputs.innerHTML = ''; // Clear existing inputs
+            for (let i = 1; i <= numLabs; i++) {
+                labInputs.innerHTML += `
+                    <label for="lab-${i}">Lab ${i}:</label>
+                    <input type="text" id="lab-${i}" placeholder="Enter Lab ${i}" required>
+                    <label for="lab-teacher-${i}">Teacher for Lab ${i}:</label>
+                    <input type="text" id="lab-teacher-${i}" placeholder="Enter Teacher for Lab ${i}" required>
+                    <label for="lab-day-${i}">Select Day for Lab ${i}:</label>
+                    <select id="lab-day-${i}">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                `;
+            }
+        });
+
+        // Function to generate the timetable on submission
+        document.getElementById('timetable-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission and page reload
+
+            // Clear previous timetable
+            const timetable = document.getElementById('timetable').getElementsByTagName('tbody')[0];
+            for (let i = 0; i < timetable.rows.length; i++) {
+                for (let j = 1; j < timetable.rows[i].cells.length; j++) {
+                    timetable.rows[i].cells[j].innerHTML = ''; // Clear cells
+                }
+            }
+
+            const numSubjects = parseInt(document.getElementById('num-subjects').value);
+            const subjects = [];
+            for (let i = 1; i <= numSubjects; i++) {
+                const subject = document.getElementById(`subject-${i}`).value;
+                const teacher = document.getElementById(`teacher-${i}`).value;
+                const classesPerWeek = parseInt(document.getElementById(`classes-per-week-${i}`).value);
+                subjects.push({subject, teacher, classesPerWeek});
+            }
+
+            const numLabs = parseInt(document.getElementById('num-labs').value);
+            const labs = [];
+            for (let i = 1; i <= numLabs; i++) {
+                const lab = document.getElementById(`lab-${i}`).value;
+                const labTeacher = document.getElementById(`lab-teacher-${i}`).value;
+                const labDay = document.getElementById(`lab-day-${i}`).value;
+                labs.push({lab, labTeacher, labDay});
+            }
+
+            // Generate timetable logic
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let classesScheduled = 0; // Counter for classes scheduled
+
+            // Assign subjects to timetable slots
+            for (let day of days) {
+                const dayRow = Array.from(timetable.rows).find(row => row.cells[0].innerText === day);
+                if (dayRow) {
+                    for (let j = 1; j < dayRow.cells.length; j++) {
+                        if (classesScheduled < subjects.length) {
+                            const subject = subjects[classesScheduled];
+                            dayRow.cells[j].innerText = `${subject.subject} (${subject.teacher})`;
+                            classesScheduled++;
+                        }
+                    }
+                }
+            }
+
+            // Schedule labs
+            for (const {lab, labTeacher, labDay} of labs) {
+                const dayRow = Array.from(timetable.rows).find(row => row.cells[0].innerText === labDay);
+                if (dayRow) {
+                    dayRow.cells[6].innerText = `${lab} (${labTeacher})`; // Assuming labs are scheduled in the last column
+                }
+            }
+
+            // Show week name
+            document.getElementById('week-name').innerText = "Week Timetable"; // Set a title for the timetable
+        });
+
+        // Toggle editable cells on button click
+        document.getElementById('edit-btn').addEventListener('click', function() {
+            const cells = document.querySelectorAll('#timetable tbody td:not(.break)');
+            cells.forEach(cell => {
+                cell.classList.toggle('editable');
+                if (cell.classList.contains('editable')) {
+                    cell.contentEditable = true; // Make cell editable
+                } else {
+                    cell.contentEditable = false; // Make cell read-only
+                }
+            });
+        });
+
+        // Clear timetable button functionality
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            const timetable = document.getElementById('timetable').getElementsByTagName('tbody')[0];
+            for (let i = 0; i < timetable.rows.length; i++) {
+                for (let j = 1; j < timetable.rows[i].cells.length; j++) {
+                    timetable.rows[i].cells[j].innerHTML = ''; // Clear cells
+                }
+            }
+            subjectInputs.innerHTML = ''; // Clear subject inputs
+            labInputs.innerHTML = ''; // Clear lab inputs
+            document.getElementById('num-subjects').value = ''; // Reset number of subjects
+            document.getElementById('num-labs').value = ''; // Reset number of labs
+            document.getElementById('week-name').innerText = ''; // Clear week name
+        });
+    </script>
+</body>
+</html>

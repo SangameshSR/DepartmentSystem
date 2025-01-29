@@ -1,0 +1,250 @@
+/* General Body and Layout */
+body {
+    font-family: 'Oxygen', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header Section */
+#header {
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    padding: 20px 0;
+}
+
+.header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+}
+
+.name h5 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0;
+}
+
+.primary-color {
+    font-weight: bold;
+    color: #FF5733;
+}
+
+.header-links a {
+    font-size: 1.2rem;
+    color: white;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.header-links a:hover {
+    color: #FF5733;
+}
+
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar-nav li {
+    list-style: none;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    background-color: #FF5733;
+    color: white;
+}
+
+/* Carousel */
+.carousel-wrapper {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.carousel-items {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-items img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Widgets Section */
+.widgets-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.widgets-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.widgets-title h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.announcement-content,
+.events-content,
+.news-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#announcement-list li,
+#events-list li,
+#news-list li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#announcement-list li a,
+#events-list li a,
+#news-list li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#announcement-list li a:hover,
+#events-list li a:hover,
+#news-list li a:hover {
+    color: #FF5733;
+}
+
+#announcement-list-previous,
+#announcement-list-next,
+#events-list-previous,
+#events-list-next,
+#news-list-previous,
+#news-list-next {
+    font-size: 1.2rem;
+    color: #FF5733;
+    cursor: pointer;
+}
+
+#announcement-list-previous:hover,
+#announcement-list-next:hover,
+#events-list-previous:hover,
+#events-list-next:hover,
+#news-list-previous:hover,
+#news-list-next:hover {
+    color: #FF4500;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer .footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .address {
+    font-size: 1rem;
+    margin-right: 30px;
+}
+
+footer .links a {
+    color: #fff;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .links a:hover {
+    color: #FF5733;
+}
+
+footer .footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+footer .footer-social a:hover {
+    color: #FF5733;
+}
+
+/* Carousel */
+.slick-prev,
+.slick-next {
+    font-size: 2rem;
+    color: #FF5733;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    color: #FF4500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-links {
+        margin-top: 15px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .widgets-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .widgets-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}

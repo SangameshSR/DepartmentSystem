@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BLDEACET| Faculty</title>
+    <!--Style Starts-->
+    <link rel="icon" type="image/png" href="img/IIITV_Logo_1x1_small.png">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        .faculty-photo {
+            max-width: 100%;
+            max-height: 150px; /* Adjust height as needed */
+            height: auto;
+            border-radius: 50%; /* Optional: makes images circular */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Start Your Body Code From here -->
+    <div class="wrapper">
+        <!-- header starts here -->
+        <header id="header" class="">
+            <!-- header -->
+            <div class="header-wrapper">
+                <div class="header-container">
+                    <div>
+                        <div class="logo-name">
+                            <div class="logo"><a href="index.html" title=""><img src="img\BLD.png"
+                                                                                 alt="logo"></a></div>
+                            <div class="name">
+                                <a href="index.html" title="">
+                                    <h5>DEPARTMENT OF INFORMATION SCINCE AND ENGINEERING</h5>
+                                    <h5 class="primary-color">BLDEACET</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-links">
+                        <a href="https://www.google.com/maps?ll=16.847732,75.718501&z=17&t=m&hl=en&gl=IN&mapclient=embed&cid=6385882878560726955" target="_blank" title="Open in Google Maps">
+                            <i class="fa fa-map-marker fa-lg" style="color: #FF5733;" aria-hidden="true"></i>
+                        </a>
+                    
+                        <a href="#" data-toggle="popover" title="Phone No." data-content="+91-79-29750281"
+                           data-placement="bottom"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
+                           <a href="https://www.youtube.com/@bldeacetmedia7621" target="_blank" title="YouTube">
+                            <i class="fa fa-youtube fa-lg" style="color: #FF0000;" aria-hidden="true"></i>
+                        </a>
+                    
+                        <!-- Social Media Links with Colored Logos -->
+                        <a href="https://www.instagram.com/bldeacetmedia/" target="_blank" title="Instagram">
+                            <i class="fa fa-instagram fa-lg" style="color: #C13584;" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fbldeacet" target="_blank" title="Twitter">
+                            <i class="fa fa-twitter fa-lg" style="color: #1DA1F2;" aria-hidden="true"></i>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <nav>
+                <nav>
+                    <div class="navbar navbar-inverse navbar-custom" role="navigation">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="student_details.html">Student Details Entry</a></li>
+    
+                                    <li>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">People <b class="caret"></b></a>
+                                        <ul class="dropdown-menu multi-level">
+                                            <li><a href="faculty.html">Faculty</a></li>
+                                            <li><a href="visiting_faculty.html">Visiting Faculty</a></li>
+                                            <li><a href="staff.html">Staff</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                                        <ul class="dropdown-menu multi-level">
+                                            <li><a href="#">FAQs</a></li>
+                                            <li><a href="#">Student's Corner</a></li>
+                                            <li><a href="#" target="_blank">Moodle</a></li>
+                                            <li><a href="#">Library</a></li>
+                                            <li><a href="#">Invited Talks</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="career.html">Career</a></li>
+                                    <li><a href="gallery.html">Photo Gallery</a></li>
+                                    <li><a href="attend2.html">Attendance</a></li> <!-- New Attendance Link -->
+                                    <li><a href="marks_entry.html">Marks Entry</a></li> <!-- New Marks Entry Link -->
+                                </ul>
+                            </div>
+                            <!--/.nav-collapse -->
+                        </div>
+                    </div>
+                </nav>
+                
+        </header>
+        <style>
+            h2 {
+                font-size: 24px;
+                color: #d32f2f;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        
+            select, input[type="date"], input[type="text"] {
+                font-size: 16px;
+                padding: 8px 10px;
+                width: 100%;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin-bottom: 15px;
+            }
+        
+            label {
+                font-size: 16px;
+                color: #444;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+            }
+        
+            #studentsList li {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-bottom: 1px solid #e0e0e0;
+                font-size: 16px;
+                color: #333;
+            }
+        
+            .student-actions button {
+                font-size: 14px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                font-weight: bold;
+                color: #ffffff;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                border: none;
+            }
+        
+            /* Green for Present button */
+            .present-btn {
+                background-color: #4caf50;
+            }
+        
+            /* Red for Absent button */
+            .absent-btn {
+                background-color: #f44336;
+                display: none;
+            }
+        
+            .student-actions button:hover {
+                opacity: 0.9;
+                transform: translateY(-2px);
+            }
+        
+            /* Button hover effects */
+            .present-btn:hover {
+                background-color: #388e3c;
+            }
+        
+            .absent-btn:hover {
+                background-color: #d32f2f;
+            }
+        
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                font-weight: bold;
+                color: #ffffff;
+                margin-right: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+        
+            /* Submit button style */
+            button[type="submit"] {
+                background-color: #4caf50;
+            }
+        
+            /* Export button style */
+            button[type="button"] {
+                background-color: #ff9800;
+            }
+        
+            /* Hover effect for buttons */
+            button[type="submit"]:hover {
+                background-color: #388e3c;
+                transform: translateY(-2px);
+            }
+        
+            button[type="button"]:hover {
+                background-color: #e65100;
+                transform: translateY(-2px);
+            }
+        
+            #resultSection, #statsSection, #attendanceDetail {
+                display: none;
+                margin-top: 20px;
+                padding: 20px;
+                border-radius: 8px;
+                color: #ffffff;
+            }
+        
+            #resultSection {
+                background-color: #4caf50;
+            }
+        
+            #statsSection {
+                background-color: #009688;
+            }
+        
+            #attendanceDetail {
+                background-color: #9e9e9e;
+            }
+        
+            #attendanceDetailsDisplay {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+        
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                /* Adjust inputs and buttons for smaller screens */
+                select, input[type="date"], input[type="text"] {
+                    font-size: 14px;
+                    padding: 6px 8px;
+                }
+        
+                button {
+                    width: 100%;
+                    font-size: 18px;
+                    padding: 12px 20px;
+                }
+        
+                button[type="submit"], button[type="button"] {
+                    width: 100%;
+                    font-size: 18px;
+                    padding: 12px 20px;
+                }
+        
+                #studentsList li {
+                    font-size: 14px;
+                    padding: 8px;
+                }
+        
+                h2, h3 {
+                    font-size: 22px;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                /* Even smaller screens */
+                h2, h3 {
+                    font-size: 18px;
+                }
+        
+                label {
+                    font-size: 14px;
+                }
+        
+                select, input[type="date"], input[type="text"] {
+                    font-size: 14px;
+                    padding: 5px 8px;
+                }
+        
+                .student-actions button {
+                    padding: 8px 15px;
+                    font-size: 14px;
+                }
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        <div class="container">
+            <h2>Student Attendance Portal</h2>
+            
+            <!-- Subject Name Input -->
+            <label for="subjectName">Subject Name:</label>
+            <input type="text" id="subjectName" placeholder="Enter subject name" required>
+            
+            <!-- Semester Selector -->
+            <label for="classSelector">Semester:</label>
+            <select id="classSelector" onchange="fetchStudents()">
+                <option value="">Select Semester</option>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+                <option value="3">3rd Semester</option>
+                <option value="4">4th Semester</option>
+                <option value="5">5th Semester</option>
+                <option value="6">6th Semester</option>
+                <option value="7">7th Semester</option>
+                <option value="8">8th Semester</option>
+            </select>
+            
+            <!-- Student List -->
+            <h3>Student List</h3>
+            <ul id="studentsList"></ul>
+            
+            <!-- Attendance Date Input -->
+            <label for="attendanceDate">Attendance Date:</label>
+            <input type="date" id="attendanceDateInput" required>
+            
+            <!-- Submit and Export Buttons -->
+            <button type="submit" onclick="submitAttendance()">Submit Attendance</button>
+            <button type="button" onclick="exportAttendance()">Export Attendance</button>
+            
+            <!-- Attendance Statistics Section -->
+            <div id="statsSection" class="stats">
+                <h3>Attendance Statistics</h3>
+                <p>Total Students: <span id="totalStudentsDisplay"></span></p>
+                <p>Present: <span id="presentCountDisplay"></span></p>
+                <p>Absent: <span id="absentCountDisplay"></span></p>
+            </div>
+            
+            <!-- Result Section -->
+            <div id="resultSection" class="result-section">
+                <h3>Attendance Result</h3>
+                <p>Date: <span id="attendanceDateDisplay"></span></p>
+                <p>Time: <span id="attendanceTimeDisplay"></span></p>
+            </div>
+            
+            <!-- Retrieve Attendance Section -->
+            <h3>Retrieve Attendance</h3>
+            <label for="studentIdInput">Student ID:</label>
+            <input type="text" id="studentIdInput" placeholder="Enter Student ID" required>
+            
+            <label for="subjectNameRetrieve">Subject Name:</label>
+            <input type="text" id="subjectNameRetrieve" placeholder="Enter Subject Name" required>
+            
+            <button type="button" onclick="fetchAttendance()">Fetch Attendance</button>
+            
+            <div id="attendanceDetail" class="attendance-detail">
+                <h3>Attendance Details</h3>
+                <p id="attendanceDetailsDisplay">Student ID: undefined<br>Subject: undefined<br>Classes Attended: undefined<br>Dates: undefined</p>
+            </div>
+        </div>
+    
+        <script>
+            // Fetch students based on the selected semester
+            function fetchStudents() {
+                const semester = document.getElementById("classSelector").value;
+                const studentsList = document.getElementById("studentsList");
+                studentsList.innerHTML = ''; // Clear previous list
+    
+                if (semester) {
+                    console.log(`Selected semester: ${semester}`); // Debug log
+    
+                    fetch(`http://localhost:3001/students/semester/${semester}`) // Corrected URL
+                        .then(response => {
+                            if (!response.ok) throw new Error(`Server error: ${response.status}`);
+                            return response.json();
+                        })
+                        .then(data => {
+                            const { students } = data; // Ensure response structure matches
+                            students.forEach(student => {
+                                const li = document.createElement('li');
+                                li.innerHTML = `
+                                    ${student.studentName} (ID: ${student.studentId})
+                                    <div class="student-actions">
+                                        <button class="present-btn" data-roll="${student.studentId}" onclick="toggleAttendance(this, true)">Present</button>
+                                        <button class="absent-btn" data-roll="${student.studentId}" onclick="toggleAttendance(this, false)">Absent</button>
+                                    </div>
+                                `;
+                                studentsList.appendChild(li);
+                            });
+                        })
+                        .catch(error => console.error('Error fetching students:', error));
+                } else {
+                    console.error("Semester not selected.");
+                }
+            }
+    
+            // Fetch attendance data for a specific student and subject
+            function fetchAttendance() {
+                const studentId = document.getElementById("studentIdInput").value;
+                const subjectName = document.getElementById("subjectNameRetrieve").value;
+    
+                if (!studentId || !subjectName) {
+                    alert("Please enter both Student ID and Subject Name.");
+                    return;
+                }
+    
+                // Fetch attendance data from the backend
+                fetch(`http://localhost:3001/attendance/${studentId}/${subjectName}`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Attendance data not found');
+                        return response.json();
+                    })
+                    .then(data => {
+                        const presentAttendance = data.attendance.filter(record => record.status === 'Present');
+                        const classesAttended = presentAttendance.length;
+    
+                        // Format dates to only show YYYY-MM-DD
+                        const dates = presentAttendance.map(record => {
+                            const formattedDate = new Date(record.date).toISOString().split('T')[0]; // Only date part
+                            return formattedDate;
+                        }).join(", ");
+    
+                        document.getElementById("attendanceDetailsDisplay").innerHTML = `
+                            Student ID: ${studentId}<br>
+                            Subject: ${subjectName}<br>
+                            Classes Attended: ${classesAttended}<br>
+                            Dates: ${dates || 'No present attendance recorded'}
+                        `;
+                        document.getElementById("attendanceDetail").style.display = "block";
+                    })
+                    .catch(error => {
+                        console.error("Error fetching attendance:", error);
+                        alert("Error fetching attendance. Please try again.");
+                    });
+            }
+    
+            // Submit attendance for the selected date and subject
+            async function submitAttendance() {
+                const subjectName = document.getElementById("subjectName").value;
+                if (!subjectName) {
+                    alert("Please enter a subject name.");
+                    return;
+                }
+    
+                const dateInput = document.getElementById("attendanceDateInput").value;
+                if (!dateInput) {
+                    alert("Please select a date.");
+                    return;
+                }
+    
+                const semester = document.getElementById("classSelector").value;
+                if (!semester) {
+                    alert("Please select a semester.");
+                    return;
+                }
+    
+                const studentsList = document.getElementById("studentsList").getElementsByTagName("li");
+                let presentCount = 0, absentCount = 0;
+    
+                const attendance = Array.from(studentsList).map(studentItem => {
+                    const rollNumber = studentItem.querySelector(".present-btn").getAttribute("data-roll");
+                    const status = studentItem.querySelector(".absent-btn").style.display === 'inline-block' ? "Absent" : "Present";
+    
+                    if (status === "Present") presentCount++;
+                    else absentCount++;
+    
+                    return { roll_number: rollNumber, status };
+                });
+    
+                try {
+                    const response = await fetch("http://localhost:3001/attendance", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ 
+                            date: dateInput, 
+                            subjectName, 
+                            semester,  // Include the selected semester in the body
+                            attendance 
+                        }),
+                    });
+    
+                    if (!response.ok) throw new Error('Error saving attendance');
+    
+                    // Update UI after successful submission
+                    document.getElementById("attendanceDateDisplay").textContent = dateInput;
+                    document.getElementById("attendanceTimeDisplay").textContent = new Date().toLocaleTimeString();
+                    document.getElementById("resultSection").style.display = "block";
+                    document.getElementById("statsSection").style.display = "block";
+                    document.getElementById("totalStudentsDisplay").textContent = attendance.length;
+                    document.getElementById("presentCountDisplay").textContent = presentCount;
+                    document.getElementById("absentCountDisplay").textContent = absentCount;
+                } catch (error) {
+                    console.error('Error submitting attendance:', error);
+                    alert("Failed to submit attendance. Please try again.");
+                }
+            }
+    
+            // Export attendance (optional feature)
+            function exportAttendance() {
+                window.open('http://localhost:3001/export-attendance', '_blank');
+            }
+    
+            // Function to toggle attendance status (Present/Absent)
+            function toggleAttendance(button, isPresent) {
+                const parentDiv = button.parentElement;
+                const presentButton = parentDiv.querySelector('.present-btn');
+                const absentButton = parentDiv.querySelector('.absent-btn');
+                const studentName = parentDiv.parentElement.textContent.split(' (ID:')[0]; // Extract student name
+    
+                if (isPresent) {
+                    presentButton.style.display = 'none';
+                    absentButton.style.display = 'inline-block';
+                } else {
+                    presentButton.style.display = 'inline-block';
+                    absentButton.style.display = 'none';
+                }
+    
+                parentDiv.setAttribute('data-status', isPresent ? 'Absent' : 'Present');
+            }
+        </script>
+    </body>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>&copy; BLDEACET DEPT OF ISE.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+</div>
+
+    <!-- /wrapper -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+
+</html>
