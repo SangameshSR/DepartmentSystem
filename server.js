@@ -10,20 +10,22 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// MySQL Database Connection
+// MySQL Database Connection (FreeSQL Cloud)
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Basu@123',
-    database: 'newschema'
+    host: 'sql10.freesqldatabase.com',  // FreeSQL host
+    user: 'sql10760370',                // FreeSQL username
+    password: 'GUeSnpUSjf',              // FreeSQL password
+    database: 'sql10760370',             // FreeSQL database name
+    port: 3306                           // Default MySQL port
 });
 
+// Connect to Database
 db.connect((err) => {
     if (err) {
         console.error('Database connection failed:', err);
         return;
     }
-    console.log('Connected to MySQL database');
+    console.log('Connected to FreeSQL Cloud Database');
 });
 
 // Email Configuration
@@ -31,7 +33,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'diggaviprajwal55@gmail.com',
-        pass: 'bgnm kbga xkew pgpb' // Use app-specific password
+        pass: 'bgnm kbga xkew pgpb' // Use your Google App Password
     }
 });
 
@@ -109,31 +111,28 @@ app.post('/attendance', async (req, res) => {
             return acc;
         }, {});
 
-        // Collect email sending promises
-     // Collect email sending promises
-const emailPromises = attendance
-    .filter(record => studentMap[record.roll_number]) // Ensure valid mapping
-    .map(record => {
-        const student = studentMap[record.roll_number];
-        const totalAttendance = attendanceMap[record.roll_number] || 0;
-        
-        // Format the date received from the attendance submission
-        const formattedDate = new Date(date).toLocaleDateString(); // Ensure the correct date format
+        // Send Email Notifications
+        const emailPromises = attendance
+            .filter(record => studentMap[record.roll_number])
+            .map(record => {
+                const student = studentMap[record.roll_number];
+                const totalAttendance = attendanceMap[record.roll_number] || 0;
 
-        const statusMessage = record.status === 'Present'
-            ? `You are marked as Present for ${subjectName} on ${formattedDate}.`
-            : `You are marked as Absent for ${subjectName} on ${formattedDate}.`;
+                const formattedDate = new Date(date).toLocaleDateString();
 
-        const mailOptions = {
-            from: 'diggaviprajwal55@gmail.com',
-            to: student.email,
-            subject: 'Attendance Status',
-            text: `Dear ${student.studentName},\n\n${statusMessage}\n\nYour total Present classes for ${subjectName} is ${totalAttendance}.\n\nRegards,\nDEPT OF ISE BLDEACET`
-        };
+                const statusMessage = record.status === 'Present'
+                    ? `You are marked as Present for ${subjectName} on ${formattedDate}.`
+                    : `You are marked as Absent for ${subjectName} on ${formattedDate}.`;
 
-        return transporter.sendMail(mailOptions);
-    });
+                const mailOptions = {
+                    from: 'diggaviprajwal55@gmail.com',
+                    to: student.email,
+                    subject: 'Attendance Status',
+                    text: `Dear ${student.studentName},\n\n${statusMessage}\n\nYour total Present classes for ${subjectName} is ${totalAttendance}.\n\nRegards,\nDEPT OF ISE BLDEACET`
+                };
 
+                return transporter.sendMail(mailOptions);
+            });
 
         await Promise.all(emailPromises);
 
